@@ -700,6 +700,8 @@ code {
 <p>(頂点モーフのイメージ)<br/></p>
   <img src="gif/VertexMorph.gif" width="720">
 <p>頂点モーフの実装により、モデルが崩壊することなく、よりリアルな筋肉の表現をすることに成功しました。<br/></p>
+<p>上腕の筋肉を大きくしたい場合は、上腕の骨に<strong>関連づいている頂点のみモーフ</strong>しています。このようにすることで、部位ごとの頂点モーフを実現しています。</p>
+<img src="gif/PartialVertexMorph.gif" width="720">
 <p><a id="EnemyTechnology"></a></p>
 <h2 id="42-%E6%95%B5%E3%81%AE%E5%A4%A7%E9%87%8F%E8%A1%A8%E7%A4%BA">4.2. 敵の大量表示</h2>
 <p>迫りくる大量のゾンビたちが、このゲームのもう１つの特徴としてあります。<br/>しかし、初期の段階ではゾンビを10体出すだけで、<strong>FPSは15程度に低下</strong>し、ゲームを遊ぶどころではなくなっていました。<br/>
@@ -715,16 +717,16 @@ code {
 <p>(視錐台カリングのイメージ)</p>
 <ul>
 <li>
+<h3 id="%E5%A4%9A%E3%81%99%E3%81%8E%E3%82%8B%E9%A0%82%E7%82%B9%E6%95%B0"><strong>多すぎる頂点数</strong></h3>
+<p>3dxMaxのモディファイアのプロオプティマイザーを使うことにより、25000頂点あったモデルを<strong>5500頂点まで削減</strong>しました。</p>
+ <img src="image/EnemyMax.png" width="720"> 
+<p>(3dsMaxでのゾンビモデル)</p>
+</li>
+<li>
 <h3 id="%E7%84%A1%E9%A7%84%E3%81%AA%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%81%AE%E4%BD%BF%E7%94%A8"><strong>無駄なリソースの使用</strong></h3>
 <p>ゾンビをポップさせる時に読み込む、<strong>スキンモデル情報</strong>、<strong>アニメーション情報</strong>、<strong>ボーン情報</strong>、<strong>テクスチャ</strong>、<strong>シェーダー</strong>のリソースを使い回すように変更しました。(Flyweightパターンの実装)
 <img src="image/ResourcesBank.png" width="720"></p>
 <p>(リソース最適化のイメージ)</p>
-</li>
-<li>
-<h3 id="%E5%A4%9A%E3%81%99%E3%81%8E%E3%82%8B%E9%A0%82%E7%82%B9%E6%95%B0"><strong>多すぎる頂点数</strong></h3>
-<p>3dxMaxのモディファイアのプロオプティマイザーを使うことにより、25000頂点あったモデルを<strong>5500頂点まで削減</strong>しました。</p>
-<img src="image/EnemyMax.png" width="720"> 
-<p>(3dsMaxでのゾンビモデル)</p>
 </li>
 <li>
 <h3 id="%E8%A4%87%E9%9B%91%E3%81%AA%E7%89%A9%E7%90%86%E6%BC%94%E7%AE%97"><strong>複雑な物理演算</strong></h3>
